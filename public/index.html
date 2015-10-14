@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>WebRTC DJ</title>
+	<link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+<div id="allcontent">
+	<header>
+		<h1>WebRTC DJ</h1>
+		<h2>Mix and Stream MP3/Ogg Audio Files Directly via P2P Connections</h2> 
+		<h3>Users connected: <span id="counter" class="disptext">0</span><br>
+		<span id="stream_msg" class="disptext">Nobody is streaming.</span></h3>
+		<h4>
+			<button id="streamBtn">Stream</button>
+			<button id="stopStream">Stop</button>
+			<button id="muteBtn">Mute</button>
+			<button id="unmuteBtn">Unmute</button>
+			<audio  id="audioPlayer" autoplay></audio>
+			<audio  id="streamPlayer"autoplay></audio>
+		</h4>
+	</header>
+
+	<div id="deck">
+		<div id="deck2">
+			<input id="fileInput2" type="file" accept="audio/*"><br>
+			<canvas id="v2" class="viz" width="450" height="50"></canvas><br>
+			<button id="playBtn2">Play</button>
+			<button id="stopBtn2">Stop</button>
+		</div>
+
+   		<div id="deck1">
+			<input id="fileInput"  type="file" accept="audio/*"><br>
+			<canvas id="v1" class="viz" width="450" height="50"></canvas><br>
+			<button id="playBtn">Play</button>
+			<button id="stopBtn">Stop</button>
+		</div>
+	</div><br>
+
+	<div id="filters">
+		<div id="labels">
+			<span style="float:left; margin-right:45px">SPD</span>
+			<span style="float:left; margin-right:50px">TRIM</span>	  	
+			<span style="float:left; margin-right:55px">HPF</span>
+			<span style="float:left; margin-right:55px">TRIM</span>
+			<span style="float:left; margin-right:55px">LPF</span>	
+			<span style="float:left; margin-right:75px">VOL</span>
+
+			<span style="float:left; margin-right:55px">VOL</span>
+			<span style="float:left; margin-right:55px">LPF</span>		
+			<span style="float:left; margin-right:55px">TRIM</span>
+			<span style="float:left; margin-right:50px">HPF</span>
+			<span style="float:left; margin-right:50px">TRIM</span>
+			<span style="float:left">SPD</span>		
+		</div><br><br>
+
+		<div id="sliders">
+			<div id="playback" style="height:120px; float:left; margin-right:70px"></div>
+			<div id="h1_Q"	   style="height:120px; float:left; margin-right:70px"></div>
+			<div id="highpass" style="height:120px; float:left; margin-right:70px"></div>
+			<div id="l1_Q" 	   style="height:120px; float:left; margin-right:70px"></div>
+			<div id="lowpass"  style="height:120px; float:left; margin-right:70px"></div>
+			<div id="master"   style="height:120px; float:left; margin-right:100px"></div>
+
+			<div id="master2"   style="height:120px; float:left; margin-right:70px"></div>
+			<div id="lowpass2"  style="height:120px; float:left; margin-right:70px"></div>
+			<div id="l2_Q"      style="height:120px; float:left; margin-right:70px"></div>
+			<div id="highpass2" style="height:120px; float:left; margin-right:70px"></div>
+			<div id="h2_Q"	    style="height:120px; float:left; margin-right:70px"></div>
+			<div id="playback2" style="height:120px; float:left"></div>
+		</div><br><br>
+
+		<div id="panner_labels">
+			<span style="float:left; margin-top:30px; margin-bottom:15px; margin-left:160px">PAN</span>	
+			<span style="float:left; margin-top:30px; margin-bottom:15px; margin-left:605px">PAN</span>	
+		</div><br><br>
+
+		<div id="panner_sliders">
+			<div id="panner"      style="width:150px; float:left; margin-left:100px"></div>
+			<div id="crossfader"  style="width:200px; float:left; margin-top:30px; margin-left:145px"></div>
+			<div id="panner2"     style="width:150px; float:left; margin-left:135px"></div>
+		</div>
+	</div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="../socket.io/socket.io.js"></script>
+	<script src="js/main.js"></script>
+
+</div>
+</body>
+</html>
